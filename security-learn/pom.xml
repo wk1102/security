@@ -17,6 +17,7 @@
     <properties>
         <scurity-learn-version>1.0-SNAPSHOT</scurity-learn-version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
