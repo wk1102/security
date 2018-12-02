@@ -11,6 +11,7 @@
         <module>security-learn-core</module>
         <module>security-learn-browser</module>
         <module>security-learn-dome</module>
+        <module>security-learn-app</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
