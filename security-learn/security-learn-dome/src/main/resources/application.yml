@@ -1,0 +1,14 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///test?useSSL=false
+    username: root
+    password: root
+  session:
+    store-type: none    
+security:
+  basic:
+    enabled: false
+
