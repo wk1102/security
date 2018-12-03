@@ -1,10 +1,9 @@
 package com.security.learn.serviceImpl;
 
+import java.util.Collection;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-
-import java.util.Collection;
 
 /**
  * 自定义认证逻辑的处理
@@ -14,7 +13,12 @@ import java.util.Collection;
  * @Date 2018/12/2 21:57
  */
 public class UserDetailServiceImpl implements UserDetails {
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }
