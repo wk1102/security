@@ -24,5 +24,6 @@ public class Study {
 				HashMap map = new HashMap();
 				map.put("ss","123");
 				System.out.println(map.put("ss",sss));
+				System.err.println("");
 	}
 }
