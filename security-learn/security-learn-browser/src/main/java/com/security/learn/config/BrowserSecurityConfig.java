@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * security 的适配器
+ * 
  * @ClassName Browserser
  * @Description ToDo
  * @Author Administrator
@@ -19,39 +20,47 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    /**
-     * 注册security的密码加密的类
-     * @return
-     */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	/**
+	 * 注册security的密码加密的类
+	 * 
+	 * @return
+	 */
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		super.configure(web);
+	}
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        super.configure(web);
-    }
+	/**
+	 * 配置浏览器端的配置
+	 * 
+	 * @param http
+	 * @throws Exception
+	 */
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		 http.httpBasic()// 弹框形式登录的方式
+		//http.formLogin()// 表单登录的配置方式
+		       // .loginPage("/login.html")  //自定义登录页面
+				.and().authorizeRequests()// 对请求的授权
+				//.antMatchers("/login.html").permitAll() //匹配认证器,过滤不需要认证的请求 
+				.anyRequest()// 任意请求
+				.authenticated();// 必须经过身份认证
 
-    /**
-     * 配置浏览器端的配置
-     * @param http
-     * @throws Exception
-     */
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        ///http.httpBasic()// 弹框形式登录的方式
-        http.formLogin()//表单登录的配置方式
-        .and()
-        .authorizeRequests()//对请求的授权
-        .anyRequest()//任意请求
-        .authenticated();//必须经过身份认证
+	}
 
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		super.configure(auth);
+	}
+	
+	
+	
+	
+	
+	
 }
