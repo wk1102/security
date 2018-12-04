@@ -1,5 +1,6 @@
 package com.security.learn.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -8,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
  * security 的适配器
@@ -19,6 +22,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
+	/**
+	 * 注入自定义的 登陆成功后的处理器对象
+	 */
+	@Autowired
+	private AuthenticationSuccessHandler myAuthenticationSuccessHandler;
+	
+	/**
+	 * 注入自定义的登录失败的处理器对象
+	 */
+	@Autowired
+	private AuthenticationFailureHandler myAuthenticationFailuerHandler;
 
 	/**
 	 * 注册security的密码加密的类
@@ -43,9 +57,11 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		 http.httpBasic()// 弹框形式登录的方式
-		//http.formLogin()// 表单登录的配置方式
+		// http.httpBasic()// 弹框形式登录的方式
+		http.formLogin()// 表单登录的配置方式
 		       // .loginPage("/login.html")  //自定义登录页面
+				.successHandler(myAuthenticationSuccessHandler) //使用自定义的登陆成功的处理器
+				.failureHandler(myAuthenticationFailuerHandler) //使用自定义的登录失败的处理器
 				.and().authorizeRequests()// 对请求的授权
 				//.antMatchers("/login.html").permitAll() //匹配认证器,过滤不需要认证的请求 
 				.anyRequest()// 任意请求

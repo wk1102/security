@@ -11,4 +11,11 @@ spring:
 security:
   basic:
     enabled: false
+my:
+  validate:
+    code:
+      image:
+        length: 6
+        width: 100
+        heigth: 100    
 

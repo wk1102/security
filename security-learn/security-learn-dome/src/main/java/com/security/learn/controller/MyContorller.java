@@ -1,4 +1,4 @@
-package com.security.learn.com.security.learn.controller;
+package com.security.learn.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +13,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 public class MyContorller {
 
+	
+	
 	@GetMapping("/get1")
 	@ApiOperation(value="测试get")
 	public String  get() {

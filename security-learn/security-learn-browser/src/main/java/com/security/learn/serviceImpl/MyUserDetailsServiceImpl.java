@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MyUserDetailsServiceImpl implements  UserDetailsService {
     private  final Logger log= LoggerFactory.getLogger(MyUserDetailsServiceImpl.class);
+    //mapper数据库的方法注入
 
     /**
      * 注入密码加密类
@@ -34,7 +35,9 @@ public class MyUserDetailsServiceImpl implements  UserDetailsService {
 
         log.info("调用自定义用户存储认证的类");
 
-
+        /**
+         * 调用数据的查询方法
+         */
         //调用密码加密方法{模拟从数据库取数据}
         String  password = passwordEncoder.encode("123456");
         return new User(username,password,AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
