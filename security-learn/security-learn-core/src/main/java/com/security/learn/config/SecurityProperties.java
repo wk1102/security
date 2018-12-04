@@ -4,7 +4,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @ConfigurationProperties(prefix = "my.validate")
-@Component
 public class SecurityProperties {
 	
 	//验证码的配置类

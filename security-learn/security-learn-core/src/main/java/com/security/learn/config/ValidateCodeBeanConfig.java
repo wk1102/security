@@ -18,8 +18,8 @@ import com.security.learn.service.impl.ImageCodeGenerate;
 @Configuration
 public class ValidateCodeBeanConfig {
 	private Logger log = LoggerFactory.getLogger(getClass());
-	@Autowired(required=true)
-	private SecurityProperties securityProperties ;//= new SecurityProperties();
+	@Autowired
+	private SecurityProperties securityProperties ;
 
 	@Bean
 	@ConditionalOnMissingBean(name = "imageCodeGenerate" )

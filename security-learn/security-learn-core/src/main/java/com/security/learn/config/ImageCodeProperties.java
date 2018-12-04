@@ -8,7 +8,7 @@ package com.security.learn.config;
  */
 public class ImageCodeProperties {
     //图片码宽度
-	private int with = 67;
+	private int width = 67;
 	//图片码高度
 	private int heigth = 23;
 	//图片码的长度
@@ -25,11 +25,11 @@ public class ImageCodeProperties {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public int getWith() {
-		return with;
+	public int getWidth() {
+		return width;
 	}
-	public void setWith(int with) {
-		this.with = with;
+	public void setWidth(int width) {
+		this.width = width;
 	}
 	public int getHeigth() {
 		return heigth;
