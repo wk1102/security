@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.security.learn.config.validate.SecurityProperties;
 import com.security.learn.service.ValidateCodeGenerate;
 import com.security.learn.service.impl.ImageCodeGenerate;
 
@@ -24,7 +25,7 @@ public class ValidateCodeBeanConfig {
 	@Bean
 	@ConditionalOnMissingBean(name = "imageCodeGenerate" )
 	public ValidateCodeGenerate imageCodeGenerator() {
-		log.error("注入securityProperties");
+		
 		ImageCodeGenerate imageCodeGenerate = new ImageCodeGenerate();
 		imageCodeGenerate.setSecurityProperties(securityProperties);
 		return imageCodeGenerate;

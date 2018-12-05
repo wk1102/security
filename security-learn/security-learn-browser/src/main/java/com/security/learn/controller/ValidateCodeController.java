@@ -10,14 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.ServletWebRequest;
 
+import com.security.learn.config.validate.code.ImageCode;
 import com.security.learn.service.ValidateCodeGenerate;
-import com.security.learn.validate.code.ImageCode;
 
-@RestController
+
+@Controller
 public class ValidateCodeController {
 	private static final String SESSION_KEY ="SESSION_KEY_IMAGE_CODE";
 	private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();

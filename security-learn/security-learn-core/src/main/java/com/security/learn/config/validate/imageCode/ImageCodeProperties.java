@@ -1,4 +1,4 @@
-package com.security.learn.config;
+package com.security.learn.config.validate.imageCode;
 
 
 /**
@@ -31,14 +31,14 @@ public class ImageCodeProperties {
 	public void setWidth(int width) {
 		this.width = width;
 	}
+	public int getLength() {
+		return length;
+	}
 	public int getHeigth() {
 		return heigth;
 	}
 	public void setHeigth(int heigth) {
 		this.heigth = heigth;
-	}
-	public int getLength() {
-		return length;
 	}
 	public void setLength(int length) {
 		this.length = length;

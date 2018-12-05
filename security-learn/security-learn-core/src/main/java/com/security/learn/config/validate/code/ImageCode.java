@@ -1,4 +1,4 @@
-package com.security.learn.validate.code;
+package com.security.learn.config.validate.code;
 
 import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;

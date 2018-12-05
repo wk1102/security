@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///test?useSSL=false
     username: root
-    password: root
+    password: 11111111
   session:
     store-type: none    
 security:
@@ -16,6 +16,6 @@ my:
     code:
       image:
         length: 6
-        width: 1000
-        heigth: 1000    
+        width: 90
+        heigth: 25    
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.security.learn.validate.code.ImageCode;
+import com.security.learn.config.validate.code.ImageCode;
 
 /**
  * 生成图片验证码接口

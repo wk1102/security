@@ -63,7 +63,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 				.successHandler(myAuthenticationSuccessHandler) //使用自定义的登陆成功的处理器
 				.failureHandler(myAuthenticationFailuerHandler) //使用自定义的登录失败的处理器
 				.and().authorizeRequests()// 对请求的授权
-				//.antMatchers("/login.html").permitAll() //匹配认证器,过滤不需要认证的请求 
+				.antMatchers("/code/*").permitAll() //匹配认证器,过滤不需要认证的请求 
 				.anyRequest()// 任意请求
 				.authenticated();// 必须经过身份认证
 

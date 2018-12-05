@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.bind.ServletRequestUtils;
 
-import com.security.learn.config.SecurityProperties;
+import com.security.learn.config.validate.SecurityProperties;
+import com.security.learn.config.validate.code.ImageCode;
 import com.security.learn.service.ValidateCodeGenerate;
-import com.security.learn.validate.code.ImageCode;
+
+
 
 
 public class ImageCodeGenerate implements ValidateCodeGenerate {
@@ -28,7 +30,7 @@ public class ImageCodeGenerate implements ValidateCodeGenerate {
 	public ImageCode createImageCode(HttpServletRequest request) {
 		//先从请求中获取width,如果没有就读取配置文件中的数据
 		int width = ServletRequestUtils.getIntParameter(request, "width",securityProperties.getCode().getImage().getWidth());
-		int height =ServletRequestUtils.getIntParameter(request, "heigth",securityProperties.getCode().getImage().getWidth());
+		int height =ServletRequestUtils.getIntParameter(request, "heigth",securityProperties.getCode().getImage().getHeigth());
 		BufferedImage image = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
 		Graphics g = image.getGraphics();
 		
