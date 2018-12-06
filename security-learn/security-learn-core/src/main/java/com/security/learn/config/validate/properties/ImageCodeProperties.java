@@ -1,4 +1,4 @@
-package com.security.learn.config.validate.imageCode;
+package com.security.learn.config.validate.properties;
 
 
 /**

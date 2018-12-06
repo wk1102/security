@@ -12,6 +12,7 @@ import org.springframework.web.bind.ServletRequestUtils;
 
 import com.security.learn.config.validate.SecurityProperties;
 import com.security.learn.config.validate.code.ImageCode;
+import com.security.learn.config.validate.code.ValidateCode;
 import com.security.learn.service.ValidateCodeGenerate;
 
 
@@ -27,7 +28,7 @@ public class ImageCodeGenerate implements ValidateCodeGenerate {
 	 * @return
 	 */
 	@Override
-	public ImageCode createImageCode(HttpServletRequest request) {
+	public ValidateCode createImageCode(HttpServletRequest request) {
 		//先从请求中获取width,如果没有就读取配置文件中的数据
 		int width = ServletRequestUtils.getIntParameter(request, "width",securityProperties.getCode().getImage().getWidth());
 		int height =ServletRequestUtils.getIntParameter(request, "heigth",securityProperties.getCode().getImage().getHeigth());

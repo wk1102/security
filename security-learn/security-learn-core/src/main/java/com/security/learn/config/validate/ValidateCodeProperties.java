@@ -1,6 +1,6 @@
 package com.security.learn.config.validate;
 
-import com.security.learn.config.validate.imageCode.ImageCodeProperties;
+import com.security.learn.config.validate.properties.ImageCodeProperties;
 
 /**
  * 验证码的配置文件

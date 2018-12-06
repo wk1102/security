@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
  * @Author Administrator
  * @Date 2018/12/2 21:34
  */
-@Service
+@Service("myUserDetailsServiceImpl")
 public class MyUserDetailsServiceImpl implements  UserDetailsService {
     private  final Logger log= LoggerFactory.getLogger(MyUserDetailsServiceImpl.class);
     //mapper数据库的方法注入

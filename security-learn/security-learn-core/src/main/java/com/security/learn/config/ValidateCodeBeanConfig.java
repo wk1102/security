@@ -21,11 +21,14 @@ public class ValidateCodeBeanConfig {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private SecurityProperties securityProperties ;
-
+    
+	
+	
+	
 	@Bean
 	@ConditionalOnMissingBean(name = "imageCodeGenerate" )
 	public ValidateCodeGenerate imageCodeGenerator() {
-		
+		log.info("注入图片验证");
 		ImageCodeGenerate imageCodeGenerate = new ImageCodeGenerate();
 		imageCodeGenerate.setSecurityProperties(securityProperties);
 		return imageCodeGenerate;

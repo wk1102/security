@@ -11,6 +11,16 @@ public class SecurityProperties {
 	
 	//验证码的配置类
 	private ValidateCodeProperties code = new ValidateCodeProperties();
+	//记住我功能的配置
+    private BrowserProperties borwser = new BrowserProperties();
+    
+	public BrowserProperties getBorwser() {
+		return borwser;
+	}
+
+	public void setBorwser(BrowserProperties borwser) {
+		this.borwser = borwser;
+	}
 
 	public ValidateCodeProperties getCode() {
 		return code;

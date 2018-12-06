@@ -38,6 +38,7 @@ public class TimeFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.err.println("过滤器");
 		// TODO Auto-generated method stub
 		 HttpServletResponse  httpServletResponse = (HttpServletResponse) response;
 	     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
