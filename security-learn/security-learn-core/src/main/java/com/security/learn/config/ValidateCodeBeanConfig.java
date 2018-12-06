@@ -11,6 +11,8 @@ import com.security.learn.config.validate.SecurityProperties;
 import com.security.learn.service.ValidateCodeGenerate;
 import com.security.learn.service.impl.ImageCodeGenerate;
 
+
+
 /**
  * 图形码的注入类
  * @author issuser
@@ -21,10 +23,7 @@ public class ValidateCodeBeanConfig {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private SecurityProperties securityProperties ;
-    
-	
-	
-	
+
 	@Bean
 	@ConditionalOnMissingBean(name = "imageCodeGenerate" )
 	public ValidateCodeGenerate imageCodeGenerator() {
