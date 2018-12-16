@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql:///test?useSSL=false
     username: root
-    password: 11111111
+    password: root
   session:
     store-type: none      
 security:

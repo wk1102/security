@@ -22,6 +22,8 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 
 import com.security.learn.config.validate.SecurityProperties;
 
+
+
 /**
  * security 的适配器
  * 
@@ -75,6 +77,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		super.configure(web);
+		 web.ignoring().antMatchers("/js/**", "/css/**", "/images/**", "/druid/**","/code/**");
 	}
 
 	/**
@@ -88,6 +91,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 		// http.httpBasic()// 弹框形式登录的方式
 		http.formLogin()// 表单登录的配置方式
 		       // .loginPage("/login.html")  //自定义登录页面
+	
 				.successHandler(myAuthenticationSuccessHandler) //使用自定义的登陆成功的处理器
 				.failureHandler(myAuthenticationFailuerHandler) //使用自定义的登录失败的处理器
 				//配置记住我功能开始
@@ -98,12 +102,12 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 				.userDetailsService(myUserDetailsServiceImpl)
 				//配置记住我功能结束
 				.and().authorizeRequests()// 对请求的授权
-				.antMatchers("/code/*").permitAll() //匹配认证器,过滤不需要认证的请求 
+				.antMatchers().permitAll() //匹配认证器,过滤不需要认证的请求 
 				.anyRequest()// 任意请求
 				.authenticated();// 必须经过身份认证
 
 	}
-
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		super.configure(auth);
